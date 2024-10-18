@@ -4,3 +4,4 @@ osCreateThread = 0x800A06F0;
 osStartThread = 0x800A0840;
 osInitialize = 0x800A3C50;
 Idle_ThreadEntry = 0x800996FC;
+D_3FFFF = 0x3FFF;//ignore:true
