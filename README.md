@@ -81,8 +81,8 @@ make toolchain
 
 #### 5. Prepare a base ROM
 
-Copy your ROM to the root of this new project directory, and rename the file of the baserom to reflect the version of ROM you are using. ex: `baserom.us.rev1.z64`
-* Make sure the ROM is the US version, revision 1.1 (REV A).
+Copy your ROM to the root of this new project directory, and rename the file of the baserom to reflect the version of ROM you are using. ex: `baserom.us.z64`
+* Make sure the ROM is the US version.
 
 #### 6. Make and Build the ROM
 
