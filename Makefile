@@ -51,7 +51,7 @@ REV ?= rev1
 
 BASEROM              := baserom.$(VERSION).z64
 BASEROM_UNCOMPRESSED := baserom.$(VERSION).uncompressed.z64
-TARGET               := starfox64
+TARGET               := snowboardkids
 
 ### Output ###
 
