@@ -58,7 +58,7 @@ TARGET               := snowboardkids
 BUILD_DIR := build
 TOOLS	  := tools
 PYTHON	  := python3
-ROM       := $(BUILD_DIR)/$(TARGET).$(VERSION).uncompressed.z64
+ROM       := $(BUILD_DIR)/$(TARGET).$(VERSION).z64
 ROMC 	  := $(BUILD_DIR)/$(TARGET).$(VERSION).z64
 ELF       := $(BUILD_DIR)/$(TARGET).$(VERSION).elf
 LD_MAP    := $(BUILD_DIR)/$(TARGET).$(VERSION).map
@@ -325,87 +325,87 @@ $(shell mkdir -p $(BUILD_DIR)/linker_scripts/$(VERSION) $(BUILD_DIR)/linker_scri
 ifeq ($(COMPILER),ido)
 
 # directory flags
-build/src/libultra/gu/%.o: OPTFLAGS := -O3 -g0
-build/src/libultra/io/%.o: OPTFLAGS := -O1 -g0
-build/src/libultra/os/%.o: OPTFLAGS := -O1 -g0
-build/src/libultra/rmon/%.o: OPTFLAGS := -O1 -g0
-build/src/libultra/debug/%.o: OPTFLAGS := -O1 -g0
-build/src/libultra/host/%.o:	OPTFLAGS := -O1 -g0
-build/src/audio/%.o: OPTFLAGS := -O2 -g0
+# build/src/libultra/gu/%.o: OPTFLAGS := -O3 -g0
+# build/src/libultra/io/%.o: OPTFLAGS := -O1 -g0
+# build/src/libultra/os/%.o: OPTFLAGS := -O1 -g0
+# build/src/libultra/rmon/%.o: OPTFLAGS := -O1 -g0
+# build/src/libultra/debug/%.o: OPTFLAGS := -O1 -g0
+# build/src/libultra/host/%.o:	OPTFLAGS := -O1 -g0
+# build/src/audio/%.o: OPTFLAGS := -O2 -g0
 
 # per-file flags
-build/src/audio/audio_effects.o: CFLAGS += -use_readwrite_const
-build/src/audio/audio_heap.o: CFLAGS += -use_readwrite_const
-build/src/audio/audio_load.o: CFLAGS += -use_readwrite_const
-build/src/audio/audio_seqplayer.o: CFLAGS += -use_readwrite_const
-build/src/audio/audio_playback.o: CFLAGS += -use_readwrite_const
-build/src/audio/audio_synthesis.o: CFLAGS += -use_readwrite_const
+# build/src/audio/audio_effects.o: CFLAGS += -use_readwrite_const
+# build/src/audio/audio_heap.o: CFLAGS += -use_readwrite_const
+# build/src/audio/audio_load.o: CFLAGS += -use_readwrite_const
+# build/src/audio/audio_seqplayer.o: CFLAGS += -use_readwrite_const
+# build/src/audio/audio_playback.o: CFLAGS += -use_readwrite_const
+# build/src/audio/audio_synthesis.o: CFLAGS += -use_readwrite_const
 
-build/src/libc_sprintf.o: OPTFLAGS := -O2 -g0
-build/src/libc_math64.o: OPTFLAGS := -O2 -g0
+# build/src/libc_sprintf.o: OPTFLAGS := -O2 -g0
+# build/src/libc_math64.o: OPTFLAGS := -O2 -g0
 
-build/src/libultra/libc/ldiv.o: OPTFLAGS := -O2 -g0
-build/src/libultra/libc/string.o: OPTFLAGS := -O2 -g0
-build/src/libultra/libc/xlitob.o: OPTFLAGS := -O2 -g0
-build/src/libultra/libc/xldtob.o: OPTFLAGS := -O3 -g0
-build/src/libultra/libc/xprintf.o: OPTFLAGS := -O3 -g0
-build/src/libultra/libc/ll.o: OPTFLAGS := -O1 -g0
-build/src/libultra/libc/ll.o: MIPS_VERSION := -mips3 -32
+# build/src/libultra/libc/ldiv.o: OPTFLAGS := -O2 -g0
+# build/src/libultra/libc/string.o: OPTFLAGS := -O2 -g0
+# build/src/libultra/libc/xlitob.o: OPTFLAGS := -O2 -g0
+# build/src/libultra/libc/xldtob.o: OPTFLAGS := -O3 -g0
+# build/src/libultra/libc/xprintf.o: OPTFLAGS := -O3 -g0
+# build/src/libultra/libc/ll.o: OPTFLAGS := -O1 -g0
+# build/src/libultra/libc/ll.o: MIPS_VERSION := -mips3 -32
 
 # cc & asm-processor
 CC := $(ASM_PROC) $(ASM_PROC_FLAGS) $(IDO) -- $(AS) $(ASFLAGS) --
-build/src/libultra/gu/sqrtf.o: CC := $(IDO)
-build/src/libultra/gu/sinf.o: CC := $(IDO)
-build/src/libultra/gu/lookat.o: CC := $(IDO)
-build/src/libultra/gu/ortho.o: CC := $(IDO)
-build/src/libultra/libc/ll.o: CC := $(IDO)
-build/src/libultra/gu/perspective.o: CC := $(IDO)
-build/src/libultra/gu/mtxutil.o: CC := $(IDO)
-build/src/libultra/gu/cosf.o: CC := $(IDO)
-build/src/libultra/libc/xprintf.o: CC := $(IDO)
-build/src/libultra/libc/xldtob.o: CC := $(IDO)
+# build/src/libultra/gu/sqrtf.o: CC := $(IDO)
+# build/src/libultra/gu/sinf.o: CC := $(IDO)
+# build/src/libultra/gu/lookat.o: CC := $(IDO)
+# build/src/libultra/gu/ortho.o: CC := $(IDO)
+# build/src/libultra/libc/ll.o: CC := $(IDO)
+# build/src/libultra/gu/perspective.o: CC := $(IDO)
+# build/src/libultra/gu/mtxutil.o: CC := $(IDO)
+# build/src/libultra/gu/cosf.o: CC := $(IDO)
+# build/src/libultra/libc/xprintf.o: CC := $(IDO)
+# build/src/libultra/libc/xldtob.o: CC := $(IDO)
 else
 # directory flags
-build/src/libultra/gu/%.o:    OPTFLAGS := -Os
-build/src/libultra/io/%.o:    OPTFLAGS := -Os
-build/src/libultra/os/%.o:    OPTFLAGS := -Os
-build/src/libultra/rmon/%.o:  OPTFLAGS := -Os
-build/src/libultra/debug/%.o: OPTFLAGS := -Os
-build/src/libultra/host/%.o:  OPTFLAGS := -Os
+# build/src/libultra/gu/%.o:    OPTFLAGS := -Os
+# build/src/libultra/io/%.o:    OPTFLAGS := -Os
+# build/src/libultra/os/%.o:    OPTFLAGS := -Os
+# build/src/libultra/rmon/%.o:  OPTFLAGS := -Os
+# build/src/libultra/debug/%.o: OPTFLAGS := -Os
+# build/src/libultra/host/%.o:  OPTFLAGS := -Os
 
 # per-file flags
-build/src/audio/audio_load.o:      OPTFLAGS := -Os
-build/src/audio/audio_heap.o:      OPTFLAGS := -Os
-build/src/audio/audio_effects.o:   OPTFLAGS := -Os
-build/src/audio/audio_general.o:   OPTFLAGS := -Os
-build/src/audio/audio_playback.o:  OPTFLAGS := -Os
-build/src/audio/audio_seqplayer.o: OPTFLAGS := -Os
-build/src/audio/audio_thread.o:    OPTFLAGS := -Os
+# build/src/audio/audio_load.o:      OPTFLAGS := -Os
+# build/src/audio/audio_heap.o:      OPTFLAGS := -Os
+# build/src/audio/audio_effects.o:   OPTFLAGS := -Os
+# build/src/audio/audio_general.o:   OPTFLAGS := -Os
+# build/src/audio/audio_playback.o:  OPTFLAGS := -Os
+# build/src/audio/audio_seqplayer.o: OPTFLAGS := -Os
+# build/src/audio/audio_thread.o:    OPTFLAGS := -Os
 
-build/src/libc_sprintf.o: OPTFLAGS := -Os
-build/src/libc_math64.o:  OPTFLAGS := -Os
+# build/src/libc_sprintf.o: OPTFLAGS := -Os
+# build/src/libc_math64.o:  OPTFLAGS := -Os
 
-build/src/libultra/libc/ldiv.o:    OPTFLAGS := -Os
-build/src/libultra/libc/string.o:  OPTFLAGS := -Os
-build/src/libultra/libc/xlitob.o:  OPTFLAGS := -Os
-build/src/libultra/libc/xldtob.o:  OPTFLAGS := -Os
-build/src/libultra/libc/xprintf.o: OPTFLAGS := -Os
-build/src/libultra/libc/ll.o:      OPTFLAGS := -O2
-build/src/libultra/libc/ll.o: MIPS_VERSION := -mips3
+# build/src/libultra/libc/ldiv.o:    OPTFLAGS := -Os
+# build/src/libultra/libc/string.o:  OPTFLAGS := -Os
+# build/src/libultra/libc/xlitob.o:  OPTFLAGS := -Os
+# build/src/libultra/libc/xldtob.o:  OPTFLAGS := -Os
+# build/src/libultra/libc/xprintf.o: OPTFLAGS := -Os
+# build/src/libultra/libc/ll.o:      OPTFLAGS := -O2
+# build/src/libultra/libc/ll.o: MIPS_VERSION := -mips3
 
 # cc & asm-processor
-build/src/libultra/gu/sqrtf.o:       OPTFLAGS := -Os
-build/src/libultra/gu/sinf.o:        OPTFLAGS := -Os
-build/src/libultra/gu/lookat.o:      OPTFLAGS := -Os
-build/src/libultra/gu/ortho.o:       OPTFLAGS := -Os
-build/src/libultra/gu/perspective.o: OPTFLAGS := -Os
-build/src/libultra/gu/mtxutil.o:     OPTFLAGS := -Os
-build/src/libultra/gu/cosf.o:        OPTFLAGS := -Os
-build/src/libultra/libc/xprintf.o:   OPTFLAGS := -Os
-build/src/libultra/libc/xldtob.o:    OPTFLAGS := -Os
+# build/src/libultra/gu/sqrtf.o:       OPTFLAGS := -Os
+# build/src/libultra/gu/sinf.o:        OPTFLAGS := -Os
+# build/src/libultra/gu/lookat.o:      OPTFLAGS := -Os
+# build/src/libultra/gu/ortho.o:       OPTFLAGS := -Os
+# build/src/libultra/gu/perspective.o: OPTFLAGS := -Os
+# build/src/libultra/gu/mtxutil.o:     OPTFLAGS := -Os
+# build/src/libultra/gu/cosf.o:        OPTFLAGS := -Os
+# build/src/libultra/libc/xprintf.o:   OPTFLAGS := -Os
+# build/src/libultra/libc/xldtob.o:    OPTFLAGS := -Os
 endif
 
-all: uncompressed
+all: compressed
 
 toolchain:
 	@$(MAKE) -s -C $(TOOLS)
@@ -419,14 +419,14 @@ init:
 	@$(MAKE) decompress
 	@$(MAKE) extract -j $(N_THREADS)
 	@$(MAKE) assets -j $(N_THREADS)
-	@$(MAKE) uncompressed -j $(N_THREADS)
+#	@$(MAKE) uncompressed -j $(N_THREADS)
 	@$(MAKE) compressed
 
 SF := ___  ___\n/ __||  _|\n\__ \|  _|\n|___/|_|\n
 uncompressed: $(ROM)
 ifneq ($(COMPARE),0)
 	@echo "$(GREEN)Calculating Rom Header Checksum... $(YELLOW)$<$(NO_COL)"
-	@$(PYTHON) $(COMPTOOL) -r $(ROM) .
+#	@$(PYTHON) $(COMPTOOL) -r $(ROM) .
 	@md5sum --status -c $(TARGET).$(VERSION).uncompressed.md5 && \
 	$(PRINT) "$(BLUE)$(TARGET).$(VERSION).uncompressed.z64$(NO_COL): $(GREEN)OK$(NO_COL)\n$(YELLOW) $(SF)" || \
 	$(PRINT) "$(BLUE)$(TARGET).$(VERSION).uncompressed.z64 $(RED)FAILED$(NO_COL)\n\
@@ -434,14 +434,14 @@ ifneq ($(COMPARE),0)
 	@md5sum --status -c $(TARGET).$(VERSION).uncompressed.md5
 endif
 
-compressed: $(ROMC)
+compressed: $(ROM)
 ifeq ($(COMPARE),1)
-	@echo "$(GREEN)Calculating Rom Header Checksum... $(YELLOW)$<$(NO_COL)"
-	@$(PYTHON) $(COMPTOOL) -r $(ROMC) .
+#	@echo "$(GREEN)Calculating Rom Header Checksum... $(YELLOW)$<$(NO_COL)"
+#	@$(PYTHON) $(COMPTOOL) -r $(ROMC) .
 	@md5sum --status -c $(TARGET).$(VERSION).md5 && \
 	$(PRINT) "$(BLUE)$(TARGET).$(VERSION).z64$(NO_COL): $(GREEN)OK$(NO_COL)\n" || \
 	$(PRINT) "$(BLUE)$(TARGET).$(VERSION).z64 $(RED)FAILED$(NO_COL)\n"
-	@md5sum --status -c $(TARGET).$(VERSION).uncompressed.md5
+	@md5sum --status -c $(TARGET).$(VERSION).md5
 endif
 
 #### Main Targets ###
@@ -505,7 +505,7 @@ disasm:
 #### Various Recipes ####
 
 # Final ROM
-$(ROMC): $(BASEROM_UNCOMPRESSED)
+$(ROMC): $(BASEROM)
 	$(call print,Compressing ROM...,$<,$@)
 	@$(PYTHON) $(COMPTOOL) -c -m $(MIO0) $(ROM) $(ROMC)
 
