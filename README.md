@@ -1,5 +1,13 @@
-# sk
+# Snowboard Kids (US)
 Decompilation of Snowboard Kids (actually just a disassembly for now)
+
+This is a WIP **matching decompilation** of ***Snowboard Kids***. The purpose of the project is to recreate a source code base for the game from scratch, using information found inside the game along with static and/or dynamic analysis.
+
+It currently builds the following ROM:
+
+* snowboardkids.us.z64 `MD5: 741a94eee093c4c8684e66b89f8685e8`
+
+**This repo does not include any assets or assembly code necessary for compiling the ROM. A prior copy of the game is required to extract the required assets.**
 
 TODO: figure out libultra functions
 
