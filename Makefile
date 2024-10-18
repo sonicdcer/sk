@@ -416,9 +416,9 @@ torch:
 
 init:
 	@$(MAKE) clean
-	@$(MAKE) decompress
+#	@$(MAKE) decompress
 	@$(MAKE) extract -j $(N_THREADS)
-	@$(MAKE) assets -j $(N_THREADS)
+#	@$(MAKE) assets -j $(N_THREADS)
 #	@$(MAKE) uncompressed -j $(N_THREADS)
 	@$(MAKE) compressed
 
@@ -460,6 +460,8 @@ extract:
 	@$(CAT) yamls/$(VERSION)/header.yaml yamls/$(VERSION)/main.yaml yamls/$(VERSION)/assets.yaml yamls/$(VERSION)/overlays.yaml > $(SPLAT_YAML)
 	@echo "Extracting..."
 	@$(SPLAT) $(SPLAT_YAML)
+	@echo "Applying asm_fix"
+	@cp asm_fix/func_8008B408.s asm/us/nonmatchings/88200/func_8008B408.s
 
 assets:
 	@echo "Extracting assets from ROM..."
