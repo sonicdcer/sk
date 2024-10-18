@@ -10,3 +10,6 @@
 [submodule "tools/asm-processor"]
 	path = tools/asm-processor
 	url = git@github.com:simonlindholm/asm-processor.git
+[submodule "tools/Torch"]
+	path = tools/Torch
+	url = git@github.com:HarbourMasters/Torch.git
