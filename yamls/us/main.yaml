@@ -21,6 +21,8 @@ segments:
     follows_vram: entry
     bss_size: 0x7DAC0
     subsegments:
+    
+  # TEXT SECTION
       - [0x1050, asm, 1050]
       - [0x3D40, asm, 3D40]
       - [0x5560, asm, 5560]
@@ -188,7 +190,11 @@ segments:
       - [0xB17C0, asm, B17C0]
       - [0xB1840, asm, B1840]
       - [0xB19D0, asm, B19D0]
+
+  # DATA SECTION
       - [0xB1C00, data]
+
+  # RODATA SECTION
       - [0xE11A0, rodata, 1050]
     #  - [0xE14B0, rodata]
       - [0xE1500, rodata, 3D40]
