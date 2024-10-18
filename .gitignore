@@ -1,6 +1,7 @@
 *.n64
 *.v64
 *.n64
+snowboardkids.ld
 asm
 expected
 __pycache__
