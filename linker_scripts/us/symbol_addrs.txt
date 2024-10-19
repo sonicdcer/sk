@@ -1,9 +1,25 @@
 entrypoint = 0x80000400;
 bootproc = 0x800996A0;
+Idle_ThreadEntry = 0x800996FC;
+D_3FFFF = 0x3FFF;//ignore:true
+
+// Libultra
+osInitialize = 0x800A3C50;
 osCreateThread = 0x800A06F0;
 osStartThread = 0x800A0840;
-osInitialize = 0x800A3C50;
-Idle_ThreadEntry = 0x800996FC;
 osSetThreadPri = 0x800A4070;
 osCreatePiManager = 0x800A3EE0;
-D_3FFFF = 0x3FFF;//ignore:true
+gPiMgrCmdQueue = 0x80123CC0;
+sPiMgrCmdBuff = 0x80123CD8;
+gMainThread = 0x80123960;
+sIdleThread = 0x801237B0;
+Main_ThreadEntry = 0x800998E4;
+sMainThreadStack = 0x80328480;
+sIdleThreadStack = 0x80324480;
+osCreateMesgQueue = 0x800A0290;
+__osPiCreateAccessQueue = 0x800AA890;
+osSetEventMesg = 0x800A02C0;
+osGetThreadPri = 0x800AA950;
+__osDisableInt = 0x800A61B0;
+__osRestoreInt = 0x800A61D0;
+__osDispatchThread = 0x800A6C54;

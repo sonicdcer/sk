@@ -14,7 +14,7 @@
 
 #pragma GLOBAL_ASM("asm/us/nonmatchings/A7010/func_800A6C44.s")
 
-#pragma GLOBAL_ASM("asm/us/nonmatchings/A7010/func_800A6C54.s")
+#pragma GLOBAL_ASM("asm/us/nonmatchings/A7010/__osDispatchThread.s")
 
 #pragma GLOBAL_ASM("asm/us/nonmatchings/A7010/func_800A6F80.s")
 

@@ -336,6 +336,8 @@ ifeq ($(COMPILER),ido)
 # per-file flags
 build/src/9A2A0.o: OPTFLAGS := -O2 -g0
 build/src/9A2A0.o: MIPS_VERSION := -mips1
+build/src/9CE70.o: OPTFLAGS := -O2 -g0
+build/src/9CE70.o: MIPS_VERSION := -mips1
 # build/src/audio/audio_effects.o: CFLAGS += -use_readwrite_const
 # build/src/audio/audio_heap.o: CFLAGS += -use_readwrite_const
 # build/src/audio/audio_load.o: CFLAGS += -use_readwrite_const

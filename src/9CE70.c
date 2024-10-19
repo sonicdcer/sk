@@ -2,9 +2,13 @@
 
 #pragma GLOBAL_ASM("asm/us/nonmatchings/9CE70/func_8009C270.s")
 
-#pragma GLOBAL_ASM("asm/us/nonmatchings/9CE70/func_8009C434.s")
+s32 func_8009C434(s32 arg0) {
+    return arg0 + 4;
+}
 
-#pragma GLOBAL_ASM("asm/us/nonmatchings/9CE70/func_8009C43C.s")
+s32 func_8009C43C(s32 arg0) {
+    return arg0 + 0x5C;
+}
 
 #pragma GLOBAL_ASM("asm/us/nonmatchings/9CE70/func_8009C444.s")
 

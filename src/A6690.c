@@ -22,6 +22,6 @@ void func_800A5BD0(void) {
 
 #pragma GLOBAL_ASM("asm/us/nonmatchings/A6690/func_800A6170.s")
 
-#pragma GLOBAL_ASM("asm/us/nonmatchings/A6690/func_800A61B0.s")
+#pragma GLOBAL_ASM("asm/us/nonmatchings/A6690/__osDisableInt.s")
 
-#pragma GLOBAL_ASM("asm/us/nonmatchings/A6690/func_800A61D0.s")
+#pragma GLOBAL_ASM("asm/us/nonmatchings/A6690/__osRestoreInt.s")

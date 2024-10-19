@@ -1,19 +1,33 @@
 // #include "global.h"
 #include "PR/os_thread.h"
+#include "PR/os_message.h"
 
-extern OSThread D_801237B0;
-extern u8 D_80324480[];
+extern OSThread sIdleThread;
+extern OSThread gMainThread;
+extern u8 sIdleThreadStack[];
+extern OSMesgQueue gPiMgrCmdQueue;
+extern OSMesg sPiMgrCmdBuff[50];  // might be wrong, as the real address could be sPiMgrCmdBuff - 50
+extern u8 sMainThreadStack[4096]; // might be wrong, as the real address could be in sMainThreadStack - 4096
 
+void osCreatePiManager(OSPri pri, OSMesgQueue* cmdQ, OSMesg* cmdBuf, s32 cmdMsgCnt);
 void Idle_ThreadEntry(void* arg0);
+void Main_ThreadEntry(void* arg0);
 void osInitialize(void);
 
-void bootproc(s32 arg0) {
+void bootproc(void* arg0) {
     osInitialize();
-    osCreateThread(&D_801237B0, 1 /* THREAD_ID_IDLE ? */, &Idle_ThreadEntry, arg0, &D_80324480, 10);
-    osStartThread(&D_801237B0);
+    osCreateThread(&sIdleThread, 1 /* THREAD_ID_IDLE ? */, &Idle_ThreadEntry, arg0,
+                   &sIdleThreadStack /* + sizeof(sIdleThreadStack) */, 10);
+    osStartThread(&sIdleThread);
 }
 
-#pragma GLOBAL_ASM("asm/us/nonmatchings/9A2A0/Idle_ThreadEntry.s")
+void Idle_ThreadEntry(void* arg0) {
+    osCreatePiManager(OS_PRIORITY_PIMGR, &gPiMgrCmdQueue, sPiMgrCmdBuff, 200);
+    osCreateThread(&gMainThread, 2, &Main_ThreadEntry, arg0, sMainThreadStack /* + sizeof(sMainThreadStack) */, 0xA);
+    osStartThread(&gMainThread);
+    osSetThreadPri(NULL, OS_PRIORITY_IDLE);
+    for (;;) {}
+}
 
 void func_80000450(void);
 void func_80042C28(void);
@@ -23,22 +37,21 @@ void func_800484F0(void);
 void func_800704F0(void);
 void func_80071830(void);
 void func_80098D80(void);
-void func_800994F4(s32, s32 *, s32);
+void func_800994F4(s32, s32*, s32);
 void func_8009B14C(void);
-void func_8009C270(s32 *, s32, s32);
-void func_8009CA60(s32 *, s32 *, s32 *);
-void func_800A0290(s32 *, s32 *, s32);
+void func_8009C270(s32*, s32, s32);
+void func_8009CA60(s32*, s32*, OSMesgQueue*);
 extern s32 D_80000300;
 extern s8 D_800EC8B0;
 extern s8 D_8010ADFA;
-extern s32 D_80123FF8;
-extern s32 D_80124010;
-extern s32 D_80124018;
-extern s32 D_80124030;
-extern s32 D_80124050;
-extern s32 D_80124068;
-extern s32 D_80124070;
-extern s32 D_80124088;
+extern OSMesgQueue D_80123FF8;
+extern OSMesg  D_80124010;
+extern OSMesgQueue D_80124018;
+extern OSMesg  D_80124030;
+extern OSMesgQueue D_80124050;
+extern OSMesg  D_80124068;
+extern OSMesgQueue D_80124070;
+extern OSMesg  D_80124088;
 extern s32 D_801240A8;
 extern s32 D_80124820;
 extern s8 D_8012482A;
@@ -46,18 +59,14 @@ extern s8 D_8012482B;
 extern s8 D_8012482C;
 extern s32 func_80072C30;
 
-void func_80099790(void)
-{
-    func_800A0290(&D_80123FF8, &D_80124010, 1);
-    func_800A0290(&D_80124050, &D_80124068, 2);
-    func_800A0290(&D_80124070, &D_80124088, 8);
-    func_800A0290(&D_80124018, &D_80124030, 8);
-    if (D_80000300 == 1)
-    {
+void func_80099790(void) {
+    osCreateMesgQueue(&D_80123FF8, &D_80124010, 1);
+    osCreateMesgQueue(&D_80124050, &D_80124068, 2);
+    osCreateMesgQueue(&D_80124070, &D_80124088, 8);
+    osCreateMesgQueue(&D_80124018, &D_80124030, 8);
+    if (D_80000300 == 1) {
         func_8009C270(&D_801240A8, 2, 1);
-    }
-    else
-    {
+    } else {
         func_8009C270(&D_801240A8, 0x1E, 1);
     }
     func_8009CA60(&D_801240A8, &D_80124820, &D_80124050);
@@ -78,9 +87,9 @@ void func_80099790(void)
     D_8010ADFA = 0;
 }
 
-#pragma GLOBAL_ASM("asm/us/nonmatchings/9A2A0/func_800998E4.s")
+#pragma GLOBAL_ASM("asm/us/nonmatchings/9A2A0/Main_ThreadEntry.s")
 /*
-void func_800998E4(s32 arg0) {
+void Main_ThreadEntry(s32 arg0) {
     s16* sp3C;
     s32 sp30;
     s16 temp_t7;
@@ -92,8 +101,8 @@ void func_800998E4(s32 arg0) {
     func_80099790();
 loop_1:
     do {
-        if ((func_800A0990(&D_80124018, &sp3C, 0) != 0) && (func_800A0990(&D_80124070, &sp3C, 0) != 0) && (func_800A0990(&D_80124050, &sp3C, 0) != 0)) {
-            goto loop_1;
+        if ((func_800A0990(&D_80124018, &sp3C, 0) != 0) && (func_800A0990(&D_80124070, &sp3C, 0) != 0) &&
+(func_800A0990(&D_80124050, &sp3C, 0) != 0)) { goto loop_1;
         }
         temp_t7 = *sp3C;
         switch (temp_t7) {
@@ -175,10 +184,9 @@ loop_17:
 }
 */
 
-void func_800A0990(s32*, s32*, s32);
+void func_800A0990(OSMesgQueue*, s32*, s32);
 void func_800A4220(s32, s32);
-void func_800A42D0(s32*, s32, s32, s32, s32, s32, s32*);
-extern s32 D_80123FF8;
+void func_800A42D0(s32*, s32, s32, s32, s32, s32, OSMesgQueue*);
 
 void func_80099C44(s32 arg0, s32 arg1, s32 arg2) {
     int pad[5];
@@ -205,7 +213,7 @@ void func_80099C44(s32 arg0, s32 arg1, s32 arg2) {
 #pragma GLOBAL_ASM("asm/us/nonmatchings/9A2A0/func_80099D10.s")
 
 #pragma GLOBAL_ASM("asm/us/nonmatchings/9A2A0/func_8009B0E8.s")
-/* 
+/*
 void func_8009B0E8(void) {
     s32* var_v1;
 
@@ -273,11 +281,9 @@ void func_8009B5F4(void) {
     D_80124830 = temp_v1 + 8;
     temp_v1->unk0 = 0xBC000008;
     temp_a1 = 0x3E8 - D_800DF140;
-    temp_v1->unk4 = (s32) (((0x1F400 / temp_a1) << 0x10) | (((s32) ((D_800DF140 * -0x100) + 0x1F400) / temp_a1) & 0xFFFF));
-    temp_v1_2 = D_80124830;
-    D_80124830 = temp_v1_2 + 8;
-    temp_v1_2->unk0 = 0xF8000000;
-    temp_v1_2->unk4 = (s32) ((D_80156618 << 0x18) | (D_80156619 << 0x10) | (D_8015661A << 8) | 0xFF);
+    temp_v1->unk4 = (s32) (((0x1F400 / temp_a1) << 0x10) | (((s32) ((D_800DF140 * -0x100) + 0x1F400) / temp_a1) &
+0xFFFF)); temp_v1_2 = D_80124830; D_80124830 = temp_v1_2 + 8; temp_v1_2->unk0 = 0xF8000000; temp_v1_2->unk4 = (s32)
+((D_80156618 << 0x18) | (D_80156619 << 0x10) | (D_8015661A << 8) | 0xFF);
 }
 */
 

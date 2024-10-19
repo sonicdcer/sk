@@ -115,7 +115,7 @@ segments:
       - [0xA4180, c, A4180]
       - [0xA41C0, c, A41C0]
       - [0xA4500, c, A4500]
-      - [0xA4790, c, A4790]
+      - [0xA4790, c, initialize]
       - [0xA4AE0, c, pimgr]
       - [0xA4C70, c, setthreadpri]
       - [0xA4DB0, c, A4DB0]
