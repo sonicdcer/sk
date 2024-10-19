@@ -135,6 +135,7 @@
     "sf64dma.h": "c",
     "string": "c",
     "prevent_bss_reordering3.h": "c",
+    "os_thread.h": "c"
   },
   "C_Cpp_Runner.msvcBatchPath": ""
 }
