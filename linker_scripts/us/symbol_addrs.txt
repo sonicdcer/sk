@@ -23,3 +23,7 @@ osGetThreadPri = 0x800AA950;
 __osDisableInt = 0x800A61B0;
 __osRestoreInt = 0x800A61D0;
 __osDispatchThread = 0x800A6C54;
+__osEnqueueAndYield = 0x800A6AFC;
+__osEnqueueThread = 0x800A6BFC;
+osSendMesg = 0x800A0D30;
+__osPopThread = 0x800A6C44;

@@ -8,11 +8,11 @@
 
 #pragma GLOBAL_ASM("asm/us/nonmatchings/A7010/func_800A64D0.s")
 
-#pragma GLOBAL_ASM("asm/us/nonmatchings/A7010/func_800A6AFC.s")
+#pragma GLOBAL_ASM("asm/us/nonmatchings/A7010/__osEnqueueAndYield.s")
 
-#pragma GLOBAL_ASM("asm/us/nonmatchings/A7010/func_800A6BFC.s")
+#pragma GLOBAL_ASM("asm/us/nonmatchings/A7010/__osEnqueueThread.s")
 
-#pragma GLOBAL_ASM("asm/us/nonmatchings/A7010/func_800A6C44.s")
+#pragma GLOBAL_ASM("asm/us/nonmatchings/A7010/__osPopThread.s")
 
 #pragma GLOBAL_ASM("asm/us/nonmatchings/A7010/__osDispatchThread.s")
 
