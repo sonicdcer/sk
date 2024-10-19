@@ -45,13 +45,13 @@ extern s32 D_80000300;
 extern s8 D_800EC8B0;
 extern s8 D_8010ADFA;
 extern OSMesgQueue D_80123FF8;
-extern OSMesg  D_80124010;
+extern OSMesg D_80124010;
 extern OSMesgQueue D_80124018;
-extern OSMesg  D_80124030;
+extern OSMesg D_80124030;
 extern OSMesgQueue D_80124050;
-extern OSMesg  D_80124068;
+extern OSMesg D_80124068;
 extern OSMesgQueue D_80124070;
-extern OSMesg  D_80124088;
+extern OSMesg D_80124088;
 extern s32 D_801240A8;
 extern s32 D_80124820;
 extern s8 D_8012482A;
@@ -101,8 +101,8 @@ void Main_ThreadEntry(s32 arg0) {
     func_80099790();
 loop_1:
     do {
-        if ((func_800A0990(&D_80124018, &sp3C, 0) != 0) && (func_800A0990(&D_80124070, &sp3C, 0) != 0) &&
-(func_800A0990(&D_80124050, &sp3C, 0) != 0)) { goto loop_1;
+        if ((osRecvMesg(&D_80124018, &sp3C, 0) != 0) && (osRecvMesg(&D_80124070, &sp3C, 0) != 0) &&
+(osRecvMesg(&D_80124050, &sp3C, 0) != 0)) { goto loop_1;
         }
         temp_t7 = *sp3C;
         switch (temp_t7) {
@@ -166,8 +166,8 @@ loop_1:
 loop_16:
     do {
 loop_17:
-        if ((func_800A0990(&D_80124018, &sp3C, 0) != 0) && (func_800A0990(&D_80124070, &sp3C, 0) != 0)) {
-            if (func_800A0990(&D_80124050, &sp3C, 0) != 0) {
+        if ((osRecvMesg(&D_80124018, &sp3C, 0) != 0) && (osRecvMesg(&D_80124070, &sp3C, 0) != 0)) {
+            if (osRecvMesg(&D_80124050, &sp3C, 0) != 0) {
                 goto loop_17;
             }
         }
@@ -184,14 +184,14 @@ loop_17:
 }
 */
 
-void func_800A0990(OSMesgQueue*, s32*, s32);
+extern s32 osRecvMesg(OSMesgQueue*, OSMesg*, s32);
 void func_800A4220(s32, s32);
 void func_800A42D0(s32*, s32, s32, s32, s32, s32, OSMesgQueue*);
 
 void func_80099C44(s32 arg0, s32 arg1, s32 arg2) {
     int pad[5];
     s32 sp50;
-    s32 sp4C;
+    OSMesg sp4C;
     s32 var_s0;
 
     while (arg2 != 0) {
@@ -202,7 +202,7 @@ void func_80099C44(s32 arg0, s32 arg1, s32 arg2) {
         }
         func_800A4220(arg1, var_s0);
         func_800A42D0(&sp50, 0, 0, arg0, arg1, var_s0, &D_80123FF8);
-        func_800A0990(&D_80123FF8, &sp4C, 1);
+        osRecvMesg(&D_80123FF8, &sp4C, 1);
         arg2 -= var_s0;
         arg0 += var_s0;
         arg1 += var_s0;

@@ -72,7 +72,7 @@
 
 #pragma GLOBAL_ASM("asm/us/nonmatchings/464E0/func_80048E3C.s")
 
-#pragma GLOBAL_ASM("asm/us/nonmatchings/464E0/func_80048E4C.s")
+#pragma GLOBAL_ASM("asm/us/nonmatchings/464E0/osSyncPrintf.s")
 
 #pragma GLOBAL_ASM("asm/us/nonmatchings/464E0/func_80048E60.s")
 
