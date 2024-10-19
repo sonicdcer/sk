@@ -89,7 +89,7 @@ endif
 ifeq ($(COMPILER),gcc)
   OPTFLAGS := -Os
 else
-  OPTFLAGS := -O2 -g3
+  OPTFLAGS := -O2 -g0
 endif
 
 ifeq ($(COMPILER),gcc)
@@ -98,7 +98,7 @@ ifeq ($(COMPILER),gcc)
 else
   # we support Microsoft extensions such as anonymous structs, which the compiler does support but warns for their usage. Surpress the warnings with -woff.
   CFLAGS += -G 0 -non_shared -fullwarn -verbose -Xcpluscomm $(IINC) -nostdinc -Wab,-r4300_mul -woff 649,838,712,516
-  MIPS_VERSION := -mips2
+  MIPS_VERSION := -mips1
   WARNINGS := -fullwarn -verbose -woff 624,649,838,712,516,513,596,564,594,709,807
 endif
 
@@ -465,7 +465,7 @@ extract:
 	@echo "Extracting..."
 	@$(SPLAT) $(SPLAT_YAML)
 	@echo "Applying asm_fix"
-	@cp asm_fix/func_8008B408.s asm/us/nonmatchings/88200/func_8008B408.s
+#	@cp asm_fix/func_8008B408.s asm/us/nonmatchings/88200/func_8008B408.s
 
 assets:
 	@echo "Extracting assets from ROM..."

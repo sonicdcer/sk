@@ -1,7 +1,7 @@
 entrypoint = 0x80000400;
 bootproc = 0x800996A0;
 Idle_ThreadEntry = 0x800996FC;
-D_3FFFF = 0x3FFF;//ignore:true
+D_3FFFF = 0x3FFFF;//ignore:true
 
 // Libultra
 osInitialize = 0x800A3C50;
@@ -31,3 +31,11 @@ osMotorStop = 0x800A0E80;
 osMotorStart = 0x800A1020;
 _MakeMotorData = 0x800A11C0;
 osMotorInit = 0x800A133C;
+guPerspectiveF = 0x800A3900;
+guPerspective = 0x800A3B30;
+guMtxF2L = 0x800AA010;
+__cosf = 0x800AA280;
+__sinf = 0x800A5570;
+func_800AA110 = 0x800AA110;
+func_800AA198 = 0x800AA198;
+func_800AA1C8 = 0x800AA1C8;
