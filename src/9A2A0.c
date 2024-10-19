@@ -138,7 +138,7 @@ loop_1:
         }
     } while (sp30 == 0);
     func_800722B4(&D_80124018);
-    func_800A41B0(1);
+    osViBlack(1);
     func_80000A40(0);
     func_80000A40(1);
     func_80000A40(2);
@@ -185,7 +185,7 @@ loop_17:
 */
 
 extern s32 osRecvMesg(OSMesgQueue*, OSMesg*, s32);
-void func_800A4220(s32, s32);
+void osInvalDCache(s32, s32);
 void func_800A42D0(s32*, s32, s32, s32, s32, s32, OSMesgQueue*);
 
 void func_80099C44(s32 arg0, s32 arg1, s32 arg2) {
@@ -200,8 +200,8 @@ void func_80099C44(s32 arg0, s32 arg1, s32 arg2) {
         } else {
             var_s0 = arg2;
         }
-        func_800A4220(arg1, var_s0);
-        func_800A42D0(&sp50, 0, 0, arg0, arg1, var_s0, &D_80123FF8);
+        osInvalDCache(arg1, var_s0);
+        osPiStartDma(&sp50, 0, 0, arg0, arg1, var_s0, &D_80123FF8);
         osRecvMesg(&D_80123FF8, &sp4C, 1);
         arg2 -= var_s0;
         arg0 += var_s0;

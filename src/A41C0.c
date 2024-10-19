@@ -20,4 +20,4 @@
 
 #pragma GLOBAL_ASM("asm/us/nonmatchings/A41C0/__ll_rshift.s")
 
-#pragma GLOBAL_ASM("asm/us/nonmatchings/A41C0/func_800A3880_ll_UNK.s")
+#pragma GLOBAL_ASM("asm/us/nonmatchings/A41C0/osWritebackDCache.s")
