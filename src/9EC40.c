@@ -49,7 +49,3 @@
 #pragma GLOBAL_ASM("asm/us/nonmatchings/9EC40/func_800A0138.s")
 
 #pragma GLOBAL_ASM("asm/us/nonmatchings/9EC40/func_800A0170.s")
-
-#pragma GLOBAL_ASM("asm/us/nonmatchings/9EC40/D_800E1F00.s")
-
-#pragma GLOBAL_ASM("asm/us/nonmatchings/9EC40/D_800E21C0.s")

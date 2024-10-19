@@ -12,7 +12,7 @@ segments:
     start: 0x1000
     vram: 0x80000400
     subsegments:
-      - [0x1000, hasm]
+      - [0x1000, hasm, entry]
 
   - name: main
     type: code
@@ -173,10 +173,10 @@ segments:
       - [0xACB70, c, ACB70]
       - [0xACB80, c, ACB80]
       - [0xACB90, c, ACB90]
-      - [0xACC50, asm, ACC50] # PROBLEM
+      - [0xACC50, c, ACC50]
       - [0xAD420, c, AD420]
       - [0xAD4C0, c, AD4C0]
-      - [0xAE160, asm, AE160] # PROBLEM
+      - [0xAE160, c, AE160]
       - [0xAE460, c, AE460]
       - [0xAF0C0, c, AF0C0]
       - [0xAF1D0, c, AF1D0]
@@ -200,7 +200,6 @@ segments:
 
   # RODATA SECTION
       - [0xE11A0, .rodata, 1050]
-    #  - [0xE14B0, rodata]
       - [0xE1500, .rodata, 3D40]
       - [0xE1580, .rodata, 5560]
       - [0xE1590, .rodata, 6140]
@@ -227,13 +226,10 @@ segments:
       - [0xE1CA0, .rodata, 3F200]
       - [0xE1CC0, .rodata, 3F900]
       - [0xE1CD0, .rodata, 40120]
-    #  - [0xE1CF0, rodata]
       - [0xE1D70, .rodata, 41880]
       - [0xE1DA0, .rodata, 44550]
       - [0xE1DF0, .rodata, 54260]
       - [0xE1E20, .rodata, 57EA0]
-    #  - [0xE1E50, rodata]
-    #  - [0xE20D0, rodata]
       - [0xE20E0, .rodata, 6A490]
       - [0xE2130, .rodata, 710F0]
       - [0xE2150, .rodata, 71AC0]
@@ -247,7 +243,7 @@ segments:
       - [0xE2510, .rodata, 8CAB0]
       - [0xE2630, .rodata, 9A2A0]
       - [0xE2660, .rodata, 9CE70]
-      - [0xE2670, rodata]
+      - [0xE2670, rodata] # Used by 9EC40
       - [0xE26F0, .rodata, A4500]
       - [0xE2700, .rodata, A6170]
       - [0xE27D0, .rodata, A6690]
@@ -255,12 +251,13 @@ segments:
       - [0xE2830, .rodata, A9450]
       - [0xE2930, .rodata, AAE80]
       - [0xE2980, .rodata, AB880]
-      - [0xE29A0, rodata]
-      - [0xE29B0, rodata, AE160]
+      - [0xE29A0, rodata] # used by A6170 & AAE80 (weird?)
+      - [0xE29B0, .rodata, ACC50]
+      - [0xE29D0, .rodata, AE160]
       - [0xE2A10, .rodata, AE460]
       - [0xE2A70, .rodata, AFEE0]
       - [0xE2AD0, .rodata, B0B70]
-      - [0xE2B00, .rodata, 9EC40]
+      - [0xE2B00, rodata] # Used by 9EC40
       - { start: 0xE35C0, type: bss, vram: 0x800E29C0 }
 
   - type: bin
