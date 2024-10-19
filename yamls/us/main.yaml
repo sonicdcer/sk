@@ -102,7 +102,7 @@ segments:
       - [0xA1440, c, A1440]
       - [0xA16D0, c, A16D0]
       - [0xA1930, c, sendmesg]
-      - [0xA1A80, c, A1A80]
+      - [0xA1A80, c, motor]
       - [0xA2220, c, A2220]
       - [0xA2490, c, A2490]
       - [0xA2650, c, A2650]

@@ -27,3 +27,7 @@ __osEnqueueAndYield = 0x800A6AFC;
 __osEnqueueThread = 0x800A6BFC;
 osSendMesg = 0x800A0D30;
 __osPopThread = 0x800A6C44;
+osMotorStop = 0x800A0E80;
+osMotorStart = 0x800A1020;
+_MakeMotorData = 0x800A11C0;
+osMotorInit = 0x800A133C;
