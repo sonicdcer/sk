@@ -136,7 +136,8 @@
     "string": "c",
     "prevent_bss_reordering3.h": "c",
     "os_thread.h": "c",
-    "os_message.h": "c"
+    "os_message.h": "c",
+    "cstdint": "c"
   },
   "C_Cpp_Runner.msvcBatchPath": ""
 }

@@ -62,7 +62,7 @@ segments:
       - [0x41880, c, 41880]
       - [0x437C0, c, 437C0]
       - [0x43CD0, c, 43CD0]
-      - [0x44550, c, 44550]
+      - [0x44550, c, 44550] # Some kind of scene loader
       - [0x464E0, c, 464E0]
       - [0x4A040, c, 4A040]
       - [0x4E760, c, 4E760]
@@ -95,7 +95,7 @@ segments:
       - [0x9A2A0, c, 9A2A0] # Possible sys_main
       - [0x9CE70, c, 9CE70]
       - [0x9EC40, c, 9EC40]
-      - [0xA0E90, c, A0E90]
+      - [0xA0E90, c, createmesgqueue]
       - [0xA0EC0, c, A0EC0]
       - [0xA0F30, c, A0F30]
       - [0xA12F0, c, A12F0]
@@ -184,7 +184,7 @@ segments:
       - [0xAFB40, c, AFB40]
       - [0xAFC40, c, AFC40]
       - [0xAFEE0, c, AFEE0]
-      - [0xB09A0, c, B09A0]
+      - [0xB09A0, c, resetglobalintmask]
       - [0xB0A00, c, B0A00]
       - [0xB0A50, c, B0A50]
       - [0xB0AF0, c, B0AF0]
