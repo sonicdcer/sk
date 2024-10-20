@@ -1,17 +1,17 @@
 #include "common.h"
 
-#pragma GLOBAL_ASM("asm/us/nonmatchings/A86F0/func_800A7AF0.s")
+#pragma GLOBAL_ASM("asm/us/nonmatchings/A86F0/__osSumcalc.s")
 
-#pragma GLOBAL_ASM("asm/us/nonmatchings/A86F0/func_800A7B4C.s")
+#pragma GLOBAL_ASM("asm/us/nonmatchings/A86F0/__osIdCheckSum.s")
 
-#pragma GLOBAL_ASM("asm/us/nonmatchings/A86F0/func_800A7BB4.s")
+#pragma GLOBAL_ASM("asm/us/nonmatchings/A86F0/__osRepairPackId.s")
 
-#pragma GLOBAL_ASM("asm/us/nonmatchings/A86F0/func_800A7FCC.s")
+#pragma GLOBAL_ASM("asm/us/nonmatchings/A86F0/__osCheckPackId.s")
 
-#pragma GLOBAL_ASM("asm/us/nonmatchings/A86F0/func_800A8164.s")
+#pragma GLOBAL_ASM("asm/us/nonmatchings/A86F0/__osGetId.s")
 
-#pragma GLOBAL_ASM("asm/us/nonmatchings/A86F0/func_800A83C0.s")
+#pragma GLOBAL_ASM("asm/us/nonmatchings/A86F0/__osCheckId.s")
 
-#pragma GLOBAL_ASM("asm/us/nonmatchings/A86F0/func_800A84BC.s")
+#pragma GLOBAL_ASM("asm/us/nonmatchings/A86F0/__osPfsRWInode.s")
 
-#pragma GLOBAL_ASM("asm/us/nonmatchings/A86F0/func_800A87DC.s")
+#pragma GLOBAL_ASM("asm/us/nonmatchings/A86F0/__osPfsSelectBank.s")

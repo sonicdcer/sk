@@ -1,6 +1,6 @@
 #include "common.h"
 
-#pragma GLOBAL_ASM("asm/us/nonmatchings/ACC50/func_800AC050.s")
+#pragma GLOBAL_ASM("asm/us/nonmatchings/ACC50/__osAiDeviceBusy.s")
 
 #pragma GLOBAL_ASM("asm/us/nonmatchings/ACC50/func_800AC080.s")
 

@@ -4,4 +4,4 @@
 
 #pragma GLOBAL_ASM("asm/us/nonmatchings/AF1D0/func_800AE604.s")
 
-#pragma GLOBAL_ASM("asm/us/nonmatchings/AF1D0/func_800AE690.s")
+#pragma GLOBAL_ASM("asm/us/nonmatchings/AF1D0/__osSiDeviceBusy.s")

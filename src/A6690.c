@@ -3,9 +3,9 @@
 void func_800A5A90(void) {
 }
 
-#pragma GLOBAL_ASM("asm/us/nonmatchings/A6690/func_800A5A98.s")
+#pragma GLOBAL_ASM("asm/us/nonmatchings/A6690/_timeToSamples.s")
 
-#pragma GLOBAL_ASM("asm/us/nonmatchings/A6690/func_800A5AF0.s")
+#pragma GLOBAL_ASM("asm/us/nonmatchings/A6690/_freePVoice.s")
 
 #pragma GLOBAL_ASM("asm/us/nonmatchings/A6690/func_800A5B28.s")
 
@@ -20,7 +20,7 @@ void func_800A5BD0(void) {
 
 #pragma GLOBAL_ASM("asm/us/nonmatchings/A6690/func_800A5E70.s")
 
-#pragma GLOBAL_ASM("asm/us/nonmatchings/A6690/func_800A6170.s")
+#pragma GLOBAL_ASM("asm/us/nonmatchings/A6690/__osDequeueThread.s")
 
 #pragma GLOBAL_ASM("asm/us/nonmatchings/A6690/__osDisableInt.s")
 

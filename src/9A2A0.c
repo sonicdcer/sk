@@ -1,6 +1,7 @@
 // #include "global.h"
 #include "PR/os_thread.h"
 #include "PR/os_message.h"
+#include "PR/os_pi.h"
 
 extern OSThread sIdleThread;
 extern OSThread gMainThread;
@@ -190,7 +191,7 @@ void func_800A42D0(s32*, s32, s32, s32, s32, s32, OSMesgQueue*);
 
 void func_80099C44(s32 arg0, s32 arg1, s32 arg2) {
     int pad[5];
-    s32 sp50;
+    OSIoMesg* sp50;
     OSMesg sp4C;
     s32 var_s0;
 
@@ -201,7 +202,7 @@ void func_80099C44(s32 arg0, s32 arg1, s32 arg2) {
             var_s0 = arg2;
         }
         osInvalDCache(arg1, var_s0);
-        osPiStartDma(&sp50, 0, 0, arg0, arg1, var_s0, &D_80123FF8);
+        osPiStartDma((OSIoMesg *)&sp50, 0, 0, arg0, arg1, var_s0, &D_80123FF8);
         osRecvMesg(&D_80123FF8, &sp4C, 1);
         arg2 -= var_s0;
         arg0 += var_s0;
